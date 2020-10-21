@@ -1,0 +1,45 @@
+{% extends "questions/layout.html" %}
+
+{% block title %}
+    index
+{% endblock %}
+
+{% block body %}
+
+    <h1>Quiz</h1>
+
+    <form action = "{% url 'questions:quiz1' %}" method = "POST">
+
+        {% csrf_token %}
+
+        <label for = "category">Choose Category:</label>
+        <select id = "category" name = "category">
+            {% for item in list %}
+                <option value="{{ item }}">{{ item }}</option>
+            {% empty %}
+                <p>No Categories</p>
+            {% endfor %}
+        </select>
+        
+        <br>
+        <br>
+
+        <label for = "difficulty">Choose Difficulty:</label>
+        <select id = "difficulty" name = "difficulty">
+            <option value = "easy">Easy</option>
+            <option value = "medium">Medium</option>
+            <option value = "hard">Hard</option>
+        </select>    
+
+        <br>
+        <br>
+
+        <input type = "submit" value = "Start Quiz">
+
+      </form>
+
+
+
+
+
+{% endblock %}
