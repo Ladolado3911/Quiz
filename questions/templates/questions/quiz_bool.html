@@ -1,0 +1,58 @@
+{% extends "questions/layout.html" %}
+
+{% block title %}
+    Quiz
+{% endblock %}
+
+{% block body %}
+
+    <h1>Quiz</h1>
+
+    <br>
+    <br>
+
+    <h3>Question Nubmer {{ index }}</h3>
+    <br>
+    <br>
+
+    <form action = "{% url 'questions:quiz1' %}" method = "post">
+
+        {% csrf_token %}
+
+        <p>{{ question }}</p>
+        <input type="radio" id="1" name="bool" value="True">
+        <label for="1">True</label><br>
+        <input type="radio" id="2" name="bool" value="False">
+        <label for="2">False</label><br>
+
+        <br>
+        <br>
+
+        <input type = "submit" value = "Answer">
+
+        <br>
+        <br>
+
+    </form>
+
+    <form action = "{% url 'questions:quiz1' %}" method = "GET">
+        <input type = "submit" value = "Skip Question">
+    </form>
+
+
+
+    <br>
+    <br>
+
+    <a href = "{% url 'questions:index' %}">
+        <input type = "button" value = "cancel quiz">
+    </a>
+
+    
+
+
+
+
+
+
+{% endblock %}

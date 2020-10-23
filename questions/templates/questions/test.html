@@ -1,0 +1,42 @@
+{% extends "questions/layout.html" %}
+
+{% block title %}
+    Quiz
+{% endblock %}
+
+{% block body %}
+
+    <h1>Question:</h1>
+
+    <br>
+    <br>
+
+    <form action = "{% url 'questions:next' %}" method = "POST">
+        {% csrf_token %}
+
+        <p>{{ question }}</p>
+        <input type="radio" id="1" name="opt" value="{{ option1 }}">
+        <label for="1">{{ option1 }}</label><br>
+        <input type="radio" id="2" name="opt" value="{{ option2 }}">
+        <label for="2">{{ option2 }}</label><br>
+        <input type="radio" id="3" name="opt" value="{{ option3 }}">
+        <label for="3">{{ option3 }}</label><br>
+        <input type="radio" id="4" name="opt" value="{{ option4 }}">
+        <label for="4">{{ option4 }}</label><br>
+
+
+        <br>
+        <br>
+
+        <input type = "submit" value = "Answer">
+
+        <br>
+        <br>
+        
+    </form>
+
+    <a href = "{% url 'questions:home_page' %}">
+        <input type = "button" value = "Go Back To Home Page">
+    </a>
+
+{% endblock %}

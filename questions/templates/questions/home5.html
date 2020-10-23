@@ -6,9 +6,8 @@
 
 {% block body %}
 
-    <h1>Quiz</h1>
-
-    <p>Question: {{ question }}</p>
-
+    <a href = "{% url 'questions:quiz1' %}">
+        <input type = "button" value = "Go To Quiz App">
+    </a>
 
 {% endblock %}

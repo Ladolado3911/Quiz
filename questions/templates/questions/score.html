@@ -1,0 +1,16 @@
+{% extends "questions/layout.html" %}
+
+{% block title %}
+    index
+{% endblock %}
+
+{% block body %}
+
+    <h1>Score: {{ score }} out of 10</h1>
+
+    <a href = "{% url 'questions:home_page' %}">
+        <input type = "button" value = "Go Back To Main Page">
+    </a>
+
+
+{% endblock %}
