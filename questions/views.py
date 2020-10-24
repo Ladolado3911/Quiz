@@ -47,21 +47,10 @@ def quiz(request):
         })
 
 
-
-
-
-
-
-
-
-
     else:
-
-
 
         request.session["category"] = request.POST["category"]
         request.session["difficulty"] = request.POST["difficulty"]
-
 
 
         categories = utils.get_categories_dict()
@@ -77,18 +66,10 @@ def quiz(request):
         print("category id is:" + f'{request.session["chosen_category_id"]}')
 
 
-
-
-
-
-
-
-
         question_answers_dct = utils.get_question_answers_dct(request.session["token"], str(request.session["chosen_category_id"]), request.session["difficulty"])
         request.session["question_answers_dct"] = question_answers_dct
 
         print(request.session["question_answers_dct"])
-
 
 
 
@@ -99,9 +80,6 @@ def quiz(request):
             })
 
         else:
-
-
-
 
             while True:
 
@@ -125,12 +103,6 @@ def quiz(request):
                     continue
 
 
-
-
-
-
-
-
             return render(request, "questions/test.html", {
                 "question": list(request.session["question_answers_dct"].keys())[request.session["q_index"]],
                 "option1": opt[0],
@@ -138,21 +110,6 @@ def quiz(request):
                 "option3": opt[2],
                 "option4": opt[3],              
             })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -178,8 +135,6 @@ def next_question(request):
             print(request.session["score"])
 
 
-
-
             request.session["q_index"] += 1
 
             if len(list(request.session["question_answers_dct"].values())[request.session["q_index"]]) == 2:
@@ -189,11 +144,6 @@ def next_question(request):
                 })
 
             else:
-
-
-
-
-
 
                 while True:
 

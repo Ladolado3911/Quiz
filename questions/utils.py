@@ -99,13 +99,8 @@ def get_question_answers_dct(token, category_id, difficulty):
 
     ## decode ANSWERS
 
-
-
-
-
     dct = {}
     
-
     for a in resp["results"]:
         dct[a["question"]] = []
         dct[a["question"]].append(a["correct_answer"])
